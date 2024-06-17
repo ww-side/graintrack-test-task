@@ -1,5 +1,5 @@
 import { Link } from '@tanstack/react-router';
-import { Separator } from '@radix-ui/themes';
+import { Button, Separator, Text } from '@radix-ui/themes';
 import { useAuth } from '@/shared/hooks/use-auth.ts';
 
 export default function Header() {
@@ -23,9 +23,9 @@ export default function Header() {
           About
         </Link>
         {isLogged() && (
-          <div className="ml-auto">
-            <span className="mr-2">{username}</span>
-            <button onClick={logout}>Logout</button>
+          <div className="ml-auto flex items-center gap-3">
+            <Text>Hi, {username}👋</Text>
+            <Button onClick={logout}>Logout</Button>
           </div>
         )}
       </header>
