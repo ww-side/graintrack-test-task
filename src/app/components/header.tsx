@@ -25,7 +25,9 @@ export default function Header() {
         {isLogged() && (
           <div className="ml-auto flex items-center gap-3">
             <Text>Hi, {username}👋</Text>
-            <Button onClick={logout}>Logout</Button>
+            <Button data-testid="logout-btn" onClick={logout}>
+              Logout
+            </Button>
           </div>
         )}
       </header>
