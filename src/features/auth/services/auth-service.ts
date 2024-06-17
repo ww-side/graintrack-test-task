@@ -1,6 +1,7 @@
 import { of, throwError } from 'rxjs';
 import { delay } from 'rxjs/operators';
 import { singleton } from 'tsyringe';
+import { messages } from '@/core/config/messages.ts';
 
 type ResponseDataType = {
   token?: string;
@@ -21,6 +22,8 @@ export class AuthService {
         data: { token: 'mock-token', username },
       }).pipe(delay(1000));
     }
-    return throwError(() => new Error('Invalid credentials')).pipe(delay(1000));
+    return throwError(() => new Error(messages.invalidCredentials)).pipe(
+      delay(1000),
+    );
   }
 }

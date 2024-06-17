@@ -10,6 +10,8 @@ import {
   loginSchema,
   type LoginSchema,
 } from '@/core/utils/validators/login.schema.ts';
+import { messages } from '@/core/config/messages.ts';
+import { routes } from '@/core/config/routes.ts';
 
 export default function LoginForm() {
   const {
@@ -20,14 +22,14 @@ export default function LoginForm() {
     resolver: zodResolver(loginSchema),
   });
   const { login } = useAuth();
-  const navigate = useNavigate({ from: '/auth' });
+  const navigate = useNavigate({ from: routes.auth });
 
   const onSubmit = async (data: LoginSchema) => {
-    console.log(data);
     login(data.username, data.password).subscribe({
       next: res => {
         if (res.success && res.data.token) {
-          navigate({ to: '/' });
+          toast.success(messages.successfulAuthorize);
+          navigate({ to: routes.home });
         }
       },
       error: err => {
@@ -42,18 +44,22 @@ export default function LoginForm() {
       className="flex flex-col gap-5 bg-gray-50 p-3 rounded-md w-[300px]"
     >
       <FormGroup
+        data-testid="login-username"
         name="username"
         register={register}
         error={errors?.username?.message}
         label="Username"
       />
       <FormGroup
+        data-testid="login-password"
         name="password"
         label="Password"
         register={register}
         error={errors?.password?.message}
       />
-      <Button type="submit">Login</Button>
+      <Button data-testid="login-btn" type="submit">
+        Login
+      </Button>
     </Form.Root>
   );
 }
