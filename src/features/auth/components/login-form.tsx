@@ -1,6 +1,7 @@
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { useNavigate } from '@tanstack/react-router';
 import { Button } from '@radix-ui/themes';
 import * as Form from '@radix-ui/react-form';
 import { useAuth } from '@/shared/hooks/use-auth.ts';
@@ -9,7 +10,6 @@ import {
   loginSchema,
   type LoginSchema,
 } from '@/core/utils/validators/login.schema.ts';
-import { useNavigate } from '@tanstack/react-router';
 
 export default function LoginForm() {
   const {

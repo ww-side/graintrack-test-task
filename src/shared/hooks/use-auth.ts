@@ -1,10 +1,10 @@
 import 'reflect-metadata';
 import { useEffect, useState } from 'react';
+import Cookies from 'js-cookie';
+import { map } from 'rxjs';
 import { container } from 'tsyringe';
 import { AuthService } from '@/features/auth/services/auth-service.ts';
 import { SessionService } from '@/features/auth/services/session-service.ts';
-import Cookies from 'js-cookie';
-import { map } from 'rxjs';
 
 const authService = container.resolve(AuthService);
 const sessionService = container.resolve(SessionService);

@@ -1,7 +1,7 @@
+import { FieldValues, Path, UseFormRegister } from 'react-hook-form';
 import * as Form from '@radix-ui/react-form';
 import * as Label from '@radix-ui/react-label';
 import { TextField } from '@radix-ui/themes';
-import { FieldValues, Path, UseFormRegister } from 'react-hook-form';
 
 type FormGroupProps<TFieldValues extends FieldValues> = {
   name: Path<TFieldValues>;

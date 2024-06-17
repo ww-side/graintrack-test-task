@@ -1,7 +1,7 @@
+import { Toaster } from 'react-hot-toast';
 import { Theme } from '@radix-ui/themes';
 import { createRouter, RouterProvider } from '@tanstack/react-router';
 import { routeTree } from '@/app/routeTree.gen.ts';
-import { Toaster } from 'react-hot-toast';
 import { useAuth } from '@/shared/hooks/use-auth.ts';
 
 export default function App() {
