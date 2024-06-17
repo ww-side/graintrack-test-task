@@ -10,4 +10,6 @@ export const messages = {
   passwordOneSpecialCharacter:
     'The Password must contain at least one special character.',
   usernameLengthMin: 'Username must be at least 3 characters',
+  successfulAuthorize: 'You have been successfully authorized',
+  invalidCredentials: 'Invalid credentials',
 };
