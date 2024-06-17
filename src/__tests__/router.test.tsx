@@ -1,7 +1,7 @@
-import { describe, expect, it, beforeEach } from 'vitest';
-import { waitFor } from '@testing-library/react';
-import { renderWithContext } from '@/core/utils/testing-router.tsx';
+import { beforeEach, describe, expect, it } from 'vitest';
+import { render, waitFor } from '@testing-library/react';
 import { userEvent } from '@testing-library/user-event';
+import App from '@/app/components/app.tsx';
 
 describe('Routers test case', () => {
   beforeEach(() => {
@@ -9,7 +9,7 @@ describe('Routers test case', () => {
   });
 
   it('test routers', async () => {
-    const { getByTestId } = renderWithContext();
+    const { getByTestId } = render(<App />);
     await waitFor(() => expect(getByTestId('home-page')).toBeInTheDocument());
 
     const aboutPageBtn = getByTestId('about-page-btn');
